@@ -1,17 +1,16 @@
 {
   "compilerOptions": {
     "module": "commonjs",
-    "target": "es2020",
+    "target": "es2017",
     "noImplicitAny": false,
     "sourceMap": true,
+    "outDir": "build",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "importHelpers": true,
     "forceConsistentCasingInFileNames": true,
-    "lib": ["es2020", "esnext.asynciterable"],
-    "moduleResolution": "node",
-    "outDir": "./src/build"
+    "lib": ["es2017", "esnext.asynciterable"],
+    "moduleResolution": "node"
   },
-  "exclude": ["node_modules"],
-  "indent": [true, "spaces", 2]
+  "exclude": ["node_modules"]
 }

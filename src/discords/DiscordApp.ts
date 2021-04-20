@@ -4,22 +4,21 @@ import {
   CommandMessage,
   On,
   ArgsOf,
+  Client,
 } from "@typeit/discord";
 import * as Path from "path";
+import { Main } from "../index";
 
 @Discord("-", {
   import: [Path.join(__dirname, "..", "commands", "*.ts")],
 })
 export class DiscordApp {
-  /*
-  @On("message")
-  onMessage([message]: ArgsOf<"message">, client: Client) {
-    // Maybe handle message at some point
-  }
-  */
+  private _client = Main.Client;
+
   @On("ready")
   initialize(): void {
     console.log("Bot logged in");
+    this._client.user.setPresence({ activity: { name: "berlin v1.0.0" } });
   }
 
   @On("messageDelete")
