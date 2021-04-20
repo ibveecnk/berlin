@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "A multi-functional discord bot",
   "main": "src/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ibveecnk/berlin"
+  },
   "license": "MIT",
   "scripts": {
     "start": "ts-node src/index.ts",
@@ -11,7 +15,9 @@
   "dependencies": {
     "@typeit/discord": "^4.0.9",
     "discord.js": "^12.5.3",
-    "dotenv": "^8.2.0"
+    "dotenv": "^8.2.0",
+    "ffmpeg-static": "^4.3.0",
+    "node-fetch": "^2.6.1"
   },
   "devDependencies": {
     "@tsconfig/node14": "^1.0.0",
