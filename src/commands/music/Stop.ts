@@ -23,8 +23,6 @@ export default abstract class Stop {
       return;
     }
 
-    console.log(Main.Queue.get(command.guild.id));
-
     Main.Queue.get(command.guild.id).connection.dispatcher.end();
     Main.Queue.get(command.guild.id).connection.disconnect();
     Main.Queue.delete(command.guild.id);
