@@ -9,14 +9,14 @@ export default abstract class Play {
   @Command()
   @Description("Adds a song to the queue")
   async play(command: CommandMessage) {
-    const channel = command.member.voice.channel;
     // Safety checks
-    if (!channel) {
+    if (!command.member?.voice.channel) {
       command.channel.send(
         EmbedGenerator.errorEmbed("Error", "You are not in a voice channel.")
       );
       return;
     }
+
     if (!command.guild.me.hasPermission("CONNECT")) {
       command.channel.send(
         EmbedGenerator.errorEmbed(
@@ -96,7 +96,7 @@ export default abstract class Play {
 
     const queueConstruct = {
       textChannel: command.channel,
-      voiceChannel: channel,
+      voiceChannel: command.member.voice.channel,
       connection: null,
       songs: [],
       volume: 3.5,
@@ -136,13 +136,13 @@ export default abstract class Play {
     };
 
     try {
-      const connection = await channel.join();
+      const connection = await command.member.voice.channel.join();
       Main.Queue.get(command.guild.id).connection = connection;
-      channel.guild.voice.setSelfDeaf(true);
+      command.member.voice.channel.guild.voice.setSelfDeaf(true);
       play(Main.Queue.get(command.guild.id).songs[0]);
     } catch (error) {
       Main.Queue.delete(command.guild.id);
-      await channel.leave();
+      await command.member.voice.channel.leave();
       return console.log(`ERROR: ${error}`, command.channel.id);
     }
   }
