@@ -21,7 +21,11 @@ export class DiscordApp {
   @On("ready")
   initialize(): void {
     console.log("Bot logged in");
-    this._client.user.setPresence({ activity: { name: "berlin v1.0.0" } });
+    this._client.user.setPresence({
+      activity: {
+        name: `berlin v1.0.0 on ${this._client.guilds.cache.size} servers`,
+      },
+    });
   }
 
   @On("messageDelete")
