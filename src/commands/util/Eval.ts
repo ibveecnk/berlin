@@ -5,7 +5,7 @@ import {
   Guard,
   Infos,
 } from "@typeit/discord";
-import { IsOwner } from "../guards/IsOwner";
+import { IsOwner } from "../../guards/IsOwner";
 
 export default abstract class Eval {
   @Command()
