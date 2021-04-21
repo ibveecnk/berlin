@@ -21,9 +21,13 @@ export default abstract class Eval {
 
       if (typeof evaled !== "string") evaled = require("util").inspect(evaled);
 
-      command.channel.send(this.clean(evaled), { code: "xl" });
+      command.channel.send(String(this.clean(evaled)).substr(0, 1950), {
+        code: "xl",
+      });
     } catch (err) {
-      command.channel.send(`\`ERROR\` \`\`\`xl\n${this.clean(err)}\n\`\`\``);
+      command.channel.send(
+        String(`\`ERROR\` \`\`\`xl\n${this.clean(err)}\n\`\`\``).substr(0, 1950)
+      );
     }
   }
 
