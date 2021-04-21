@@ -10,7 +10,10 @@ import * as Path from "path";
 import { Main } from "../index";
 
 @Discord("-", {
-  import: [Path.join(__dirname, "..", "commands", "*.ts")],
+  import: [
+    Path.join(__dirname, "..", "commands", "util", "*.ts"),
+    Path.join(__dirname, "..", "commands", "music", "*.ts"),
+  ],
 })
 export class DiscordApp {
   private _client = Main.Client;

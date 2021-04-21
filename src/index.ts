@@ -1,24 +1,56 @@
-// Use the Client that are provided by @typeit/discord NOT discord.js
 import { Client } from "@typeit/discord";
+import {
+  DMChannel,
+  NewsChannel,
+  Snowflake,
+  TextChannel,
+  VoiceChannel,
+  VoiceConnection,
+} from "discord.js";
 import { config } from "dotenv";
+
+interface IQueue {
+  textChannel: TextChannel | DMChannel | NewsChannel;
+  voiceChannel: VoiceChannel;
+  connection: VoiceConnection;
+  songs: any[];
+  /*
+  Somehow always leads to errors, so this quick and dirty fix
+  [
+    id: string,
+    title: any,
+    views: number,
+    url: string,
+    ago: string,
+    duration: string,
+    img: string,
+    req: User,
+  ];
+  */
+  volume: number;
+  playing: boolean;
+}
 
 export class Main {
   private static _client: Client;
+  private static _queue: Map<Snowflake, IQueue>;
 
   static get Client(): Client {
     return this._client;
   }
+  static get Queue(): Map<Snowflake, IQueue> {
+    return this._queue;
+  }
 
   static start() {
     this._client = new Client();
+    this._queue = new Map();
 
-    // In the login method, you must specify the glob string to load your classes (for the framework).
-    // In this case that's not necessary because the entry point of your application is this file.
     config();
     this._client.login(
       process.env.DISCORD_BOT_TOKEN,
-      `${__dirname}/discords/*.ts`, // glob string to load the classes
-      `${__dirname}/discords/*.js` // If you compile your bot, the file extension will be .js
+      `${__dirname}/discords/*.ts`,
+      `${__dirname}/discords/*.js`
     );
   }
 }
