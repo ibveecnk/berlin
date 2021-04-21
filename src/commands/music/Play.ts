@@ -1,8 +1,5 @@
 import { Command, CommandMessage, Description } from "@typeit/discord";
 import { Util } from "discord.js";
-import { connect } from "node:http2";
-import { cpuUsage } from "node:process";
-import { queue } from "sharp";
 import { Main } from "../..";
 import { EmbedGenerator } from "../../helpers/EmbedGenerator";
 const ytdl = require("ytdl-core");
@@ -112,6 +109,7 @@ export default abstract class Play {
     const play = async (song) => {
       const queue = Main.Queue.get(command.guild.id);
       if (!song) {
+        Main.Queue.get(command.guild.id).connection.disconnect();
         Main.Queue.delete(command.guild.id);
         return;
       }
