@@ -25,7 +25,7 @@ export class DiscordApp {
     console.log("Bot logged in");
     this._client.user.setPresence({
       activity: {
-        name: `berlin ${version} on ${this._client.guilds.cache.size} servers`,
+        name: `berlin v${version} on ${this._client.guilds.cache.size} servers`,
       },
     });
   }
