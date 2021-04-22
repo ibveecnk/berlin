@@ -1,35 +1,7 @@
 import { Client } from "@typeit/discord";
-import {
-  DMChannel,
-  NewsChannel,
-  Snowflake,
-  TextChannel,
-  VoiceChannel,
-  VoiceConnection,
-} from "discord.js";
+import { Snowflake } from "discord.js";
 import { config } from "dotenv";
-
-interface IQueue {
-  textChannel: TextChannel | DMChannel | NewsChannel;
-  voiceChannel: VoiceChannel;
-  connection: VoiceConnection;
-  songs: any[];
-  /*
-  Somehow always leads to errors, so this quick and dirty fix
-  [
-    id: string,
-    title: any,
-    views: number,
-    url: string,
-    ago: string,
-    duration: string,
-    img: string,
-    req: User,
-  ];
-  */
-  volume: number;
-  playing: boolean;
-}
+import { IQueue } from "./interfaces/IQueue";
 
 export class Main {
   private static _client: Client;

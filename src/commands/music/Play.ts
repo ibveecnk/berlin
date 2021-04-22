@@ -1,7 +1,8 @@
 import { Command, CommandMessage, Description } from "@typeit/discord";
-import { Util } from "discord.js";
+import { User, Util } from "discord.js";
 import { Main } from "../..";
 import { EmbedGenerator } from "../../helpers/EmbedGenerator";
+import { ISong } from "../../interfaces/ISong";
 const ytdl = require("ytdl-core");
 const yts = require("yt-search");
 
@@ -66,7 +67,7 @@ export default abstract class Play {
     }
     let songInfo = searched.videos[0];
 
-    const song = {
+    const song: ISong = {
       id: songInfo.videoId,
       title: Util.escapeMarkdown(songInfo.title),
       views: String(songInfo.views).padStart(10, " "),
@@ -98,13 +99,12 @@ export default abstract class Play {
       textChannel: command.channel,
       voiceChannel: command.member.voice.channel,
       connection: null,
-      songs: [],
+      songs: new Array(song),
       volume: 3.5,
       playing: true,
     };
 
     Main.Queue.set(command.guild.id, queueConstruct);
-    queueConstruct.songs.push(song);
 
     const play = async (song) => {
       const queue = Main.Queue.get(command.guild.id);
