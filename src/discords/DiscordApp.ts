@@ -4,7 +4,6 @@ import {
   CommandMessage,
   On,
   ArgsOf,
-  Client,
 } from "@typeit/discord";
 import * as Path from "path";
 import { Main } from "../index";
