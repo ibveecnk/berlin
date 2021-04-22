@@ -11,7 +11,7 @@ import { Main } from "../index";
 
 const prefix = process.env.COMMDAND_PREFIX || "!";
 
-@Discord("!", {
+@Discord(prefix, {
   import: [
     Path.join(__dirname, "..", "commands", "util", "*.ts"),
     Path.join(__dirname, "..", "commands", "music", "*.ts"),
