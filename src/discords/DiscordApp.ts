@@ -15,6 +15,8 @@ const prefix = process.env.COMMDAND_PREFIX || "!";
   import: [
     Path.join(__dirname, "..", "commands", "util", "*.ts"),
     Path.join(__dirname, "..", "commands", "music", "*.ts"),
+    Path.join(__dirname, "..", "commands", "util", "*.js"),
+    Path.join(__dirname, "..", "commands", "music", "*.js"),
   ],
 })
 export class DiscordApp {
