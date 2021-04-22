@@ -8,6 +8,7 @@ import {
 } from "@typeit/discord";
 import * as Path from "path";
 import { Main } from "../index";
+const { version } = require("../../package.json");
 
 const prefix = process.env.COMMDAND_PREFIX || "!";
 
@@ -25,7 +26,7 @@ export class DiscordApp {
     console.log("Bot logged in");
     this._client.user.setPresence({
       activity: {
-        name: `berlin v1.0.0 on ${this._client.guilds.cache.size} servers`,
+        name: `berlin ${version} on ${this._client.guilds.cache.size} servers`,
       },
     });
   }
