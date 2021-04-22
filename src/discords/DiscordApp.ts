@@ -9,7 +9,9 @@ import {
 import * as Path from "path";
 import { Main } from "../index";
 
-@Discord("-", {
+const prefix = process.env.COMMDAND_PREFIX || "!";
+
+@Discord("!", {
   import: [
     Path.join(__dirname, "..", "commands", "util", "*.ts"),
     Path.join(__dirname, "..", "commands", "music", "*.ts"),
