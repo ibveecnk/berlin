@@ -19,6 +19,10 @@ export default abstract class Ping {
             key: "WS API Latency",
             value: `${Math.round(command.client.ws.ping)}ms`,
           },
+          {
+            key: "User ID",
+            value: `${command.member.user.id}`,
+          },
         ]
       )
     );
