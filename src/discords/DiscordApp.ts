@@ -13,10 +13,12 @@ const prefix = process.env.COMMDAND_PREFIX || "!";
 
 @Discord(prefix, {
   import: [
-    Path.join(__dirname, "..", "commands", "util", "*.ts"),
-    Path.join(__dirname, "..", "commands", "music", "*.ts"),
     Path.join(__dirname, "..", "commands", "util", "*.js"),
+    Path.join(__dirname, "..", "commands", "util", "*.ts"),
+    /* Somehow youtube broke their API, so no music for now :(
+    Path.join(__dirname, "..", "commands", "music", "*.ts"),
     Path.join(__dirname, "..", "commands", "music", "*.js"),
+    */
   ],
 })
 export class DiscordApp {
