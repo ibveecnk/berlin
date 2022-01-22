@@ -510,7 +510,7 @@ clone-response@^1.0.2:
   dependencies:
     mimic-response "^1.0.0"
 
-cmake-js@^6.3.0:
+cmake-js@6.3.0:
   version "6.3.0"
   resolved "https://registry.yarnpkg.com/cmake-js/-/cmake-js-6.3.0.tgz#ea9b5fd6789bf18dd02bdfec900bccc3fbe72af6"
   integrity sha512-1uqTOmFt6BIqKlrX+39/aewU/JVhyZWDqwAL+6psToUwxj3yWPJiwxiZFmV0XdcoWmqGs7peZTxTbJtAcH8hxw==
