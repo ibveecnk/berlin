@@ -100,10 +100,10 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-14.17.1.tgz#5e07e0cb2ff793aa7a1b41deae76221e6166049f"
   integrity sha512-/tpUyFD7meeooTRwl3sYlihx2BrJE7q9XF71EguPFIySj9B7qgnRtHsHTho+0AUm4m1SvWGm6uSncrR94q6Vtw==
 
-"@types/sharp@0.28.2":
-  version "0.28.2"
-  resolved "https://registry.yarnpkg.com/@types/sharp/-/sharp-0.28.2.tgz#75bb9f60714ed752dc88c477ef55310f17c2f08f"
-  integrity sha512-xXanJalZA3EVSZ49667lBctyao75JiH5tD5/hKYu9u5C3d9rxEqOHvMOtx/oenJUqKKgIwIZEsL0hjmKo2rjJg==
+"@types/sharp@0.30.4":
+  version "0.30.4"
+  resolved "https://registry.yarnpkg.com/@types/sharp/-/sharp-0.30.4.tgz#7430b5fcf37f35dd860112c4cf6dcd6a1ba0011b"
+  integrity sha512-6oJEzKt7wZeS7e+6x9QFEOWGs0T/6of00+0onZGN1zSmcSjcTDZKgIGZ6YWJnHowpaKUCFBPH52mYljWqU32Eg==
   dependencies:
     "@types/node" "*"
 
